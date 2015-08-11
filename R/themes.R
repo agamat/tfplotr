@@ -4,19 +4,22 @@ theme_tf_hist <- function(base_size = 12, base_family = "sans") {
   # To see theme() defaults, use theme_get().
 
   ret <- theme(
-    rect = element_rect(fill = "white", linetype = 0, colour = NA),
-    text = element_text(size = base_size, family = base_family),
-    title = element_text(hjust = 0.5),
-    axis.title.x = element_text(hjust = 0.5),
-    axis.title.y = element_text(hjust = 0.5),
+    rect =               element_rect(fill = "white", linetype = 0,
+                                      colour = NA),
+    text =               element_text(size = base_size, family = base_family),
+    title =              element_text(hjust = 0.5),
+    axis.title.x =       element_text(hjust = 0.5),
+    axis.title.y =       element_text(hjust = 0.5),
+
     panel.grid.major.y = element_line(color = "grey70", linetype = "dotted"),
     panel.grid.minor.y = element_blank(),
     panel.grid.major.x = element_blank(),
     panel.grid.minor.x = element_blank(),
-    panel.border = element_blank(),
-    panel.background = element_blank(),
-    legend.position = "bottom",
-    legend.key = element_rect(fill = "#FFFFFF00")
+    panel.border =       element_blank(),
+    panel.background =   element_blank(),
+
+    legend.position =    "bottom",
+    legend.key =         element_rect(fill = "#FFFFFF00")
   )
 
   ret
