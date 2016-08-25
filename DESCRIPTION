@@ -1,12 +1,13 @@
 Package: tfplotr
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1
-Date: 2015-08-11
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Title: Transport Foundry Graphing
+Version: 0.1.0.9000
+Date: 2016-08-25
+Author: Transport Foundry
+Maintainer: Josie Kressner <josie@transportfoundry.com>
+Description: Plotting functions and themes in R with TF look and feel
+License: Proprietary
 LazyData: TRUE
-Imports:
-  ggplot2
+Depends:
+  dplyr (>= 0.5.0)
+  ggplot2 (>= 1.0.1)
