@@ -9,5 +9,6 @@ Description: Plotting functions and themes in R with TF look and feel
 License: Proprietary
 LazyData: TRUE
 Depends:
-  dplyr (>= 0.5.0)
-  ggplot2 (>= 1.0.1)
+    dplyr (>= 0.5.0),
+    ggplot2 (>= 1.0.1)
+RoxygenNote: 5.0.1
