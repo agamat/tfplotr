@@ -50,8 +50,10 @@ plot_time_use <- function(tbl, x_max = 1440) {
     theme(legend.title = element_blank()) +
     xlab("Military Time") + ylab("Percent of People") +
     scale_fill_manual(
-      values = as.vector(c(solarized["base03"], solarized["violet"],
-                           solarized["cyan"], solarized["base3"]))) +
+      values = as.vector(c(tfplotr::solarized["base03"],
+                           tfplotr::solarized["violet"],
+                           tfplotr::solarized["cyan"],
+                           tfplotr::solarized["base3"]))) +
     scale_x_continuous(
       breaks = seq(0, x_max, by = 60*4),  # label every four hours
       labels = tfr::get_military_time)
