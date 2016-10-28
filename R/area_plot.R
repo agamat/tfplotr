@@ -15,7 +15,8 @@
 #' @return A plot.
 #'
 #' @export
-plot_time_use <- function(tbl, x_max = 1440, interval = 15, weight = T) {
+plot_time_use <- function(tbl, x_max = 1440, interval = 15, weight = T,
+                          baseline = 4) {
 
   times <- seq(0, x_max, by = interval)
   times <- times[times < x_max]
@@ -79,5 +80,5 @@ plot_time_use <- function(tbl, x_max = 1440, interval = 15, weight = T) {
     scale_x_continuous(
       limits = c(0, x_max),
       breaks = seq(0, x_max, by = 60*4),  # label every four hours
-      labels = tfr::get_military_time)
+      labels = tfr::get_military_time(baseline))
 }
