@@ -4,13 +4,19 @@
 \alias{plot_time_use}
 \title{Plot area plot of time use.}
 \usage{
-plot_time_use(tbl, x_max = 1440)
+plot_time_use(tbl, x_max = 1440, interval = 15, weight = T)
 }
 \arguments{
 \item{tbl}{tbl of data with at least the following columns: \code{per_id},
 \code{event_type}, \code{start}, \code{end}.}
 
 \item{x_max}{Maximum time on x-axis.}
+
+\item{interval}{Number of minutes between sampling of activity proportions.}
+
+\item{weight}{Boolean for whether or not weights should be used. By default,
+true. If true, a 'weight' column is required. If one is not present,
+weight = 1 is assigned to all persons.}
 }
 \value{
 A plot.
