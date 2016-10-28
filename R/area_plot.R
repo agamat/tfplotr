@@ -80,5 +80,6 @@ plot_time_use <- function(tbl, x_max = 1440, interval = 15, weight = T,
     scale_x_continuous(
       limits = c(0, x_max),
       breaks = seq(0, x_max, by = 60*4),  # label every four hours
-      labels = tfr::get_military_time(baseline))
+      labels = tfr::get_military_time(seq(0, x_max, by = 60*4),
+                                      baseline = baseline))
 }
