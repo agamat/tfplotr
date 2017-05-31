@@ -4,7 +4,8 @@
 \alias{plot_time_use}
 \title{Plot area plot of time use.}
 \usage{
-plot_time_use(tbl, x_max = 1440, interval = 15, weight = T)
+plot_time_use(tbl, x_max = 1440, interval = 15, weight = T,
+  baseline = 4)
 }
 \arguments{
 \item{tbl}{tbl of data with at least the following columns: \code{per_id},
@@ -17,6 +18,8 @@ plot_time_use(tbl, x_max = 1440, interval = 15, weight = T)
 \item{weight}{Boolean for whether or not weights should be used. By default,
 true. If true, a 'weight' column is required. If one is not present,
 weight = 1 is assigned to all persons.}
+
+\item{baseline}{The time to start the plot; defaults to 4 AM.}
 }
 \value{
 A plot.
@@ -26,4 +29,3 @@ Assumes \code{start} and \code{end} in \code{tbl} and the \code{x_max} value
 are in simulation time (minutes from 4:00am) with \code{end} missing for the
 last activity of every person.
 }
-

@@ -20,4 +20,3 @@ A square matrix.
 \description{
 Convert a dataframe to a matrix for chord diagrams
 }
-

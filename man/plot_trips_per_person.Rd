@@ -15,4 +15,3 @@ A plot.
 \description{
 Plot histogram of trips per person.
 }
-

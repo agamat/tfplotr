@@ -11,6 +11,7 @@
 #' @param weight Boolean for whether or not weights should be used. By default,
 #'   true. If true, a 'weight' column is required. If one is not present,
 #'   weight = 1 is assigned to all persons.
+#' @param baseline The time to start the plot; defaults to 4 AM.
 #'
 #' @return A plot.
 #'

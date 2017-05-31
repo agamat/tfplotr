@@ -12,4 +12,3 @@ solarized
 Solarized colorscheme
 }
 \keyword{datasets}
-
