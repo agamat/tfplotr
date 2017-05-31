@@ -7,6 +7,8 @@ Author: Transport Foundry
 Maintainer: Josie Kressner <josie@transportfoundry.com>
 Description: Plotting functions and themes in R with TF look and feel
 License: Proprietary
+Description: Plotting functions and themes in R with TF look and feel.
+License: file LICENSE
 LazyData: TRUE
 Depends:
     dplyr (>= 0.5.0),
