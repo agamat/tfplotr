@@ -25,42 +25,42 @@ plot_time_use <- function(tbl, x_max = 1440, interval = 15, weight = T,
   activities_at_time <- list()
   for (i in times) {
     activities_at_time[[i+1]] <- tbl %>%
-      filter((start <= i & i < end & start != end) |
+      dplyr::filter((start <= i & i < end & start != end) |
                (start <= i & is.na(end))) %>%
-      mutate(time = i) %>%
-      select(time, per_id, event_type)
+      dplyr::mutate(time = i) %>%
+      dplyr::select(time, per_id, event_type)
   }
 
-  x <- bind_rows(activities_at_time) %>%
-    group_by(time, event_type)
+  x <- dplyr::bind_rows(activities_at_time) %>%
+    dplyr::group_by(time, event_type)
 
   # If weights do not exist in the data or if plotting without weights
   if (!("weight" %in% names(tbl)) || weight == F) {
-    x <- mutate(x, weight = 1)
-    tbl <- mutate(tbl, weight = 1)
+    x <- dplyr::mutate(x, weight = 1)
+    tbl <- dplyr::mutate(tbl, weight = 1)
   } else {
-    x <- left_join(x, tbl %>% group_by(per_id, weight) %>% summarise(),
+    x <- dplyr::left_join(x, tbl %>% dplyr::group_by(per_id, weight) %>% summarise(),
                    by = "per_id")
   }
 
   x <- x %>%
-    summarise(count = sum(weight)) %>%
+    dplyr::summarise(count = sum(weight)) %>%
     tidyr::spread(event_type, count, fill = 0) %>%
     tidyr::gather(event_type, count, -time) %>%
-    group_by(time) %>%
-    mutate(pct = count / sum(count) * 100)
+    dplyr::group_by(time) %>%
+    dplyr::mutate(pct = count / sum(count) * 100)
 
   # Find percent who make no trips
   num_home <- tbl %>%
-    filter(start == 0, (is.na(end) || end == x_max)) %>%
-    ungroup() %>%
-    summarise(count = sum(weight)) %>%
+    dplyr::filter(start == 0, (is.na(end) || end == x_max)) %>%
+    dplyr::ungroup() %>%
+    dplyr::summarise(count = sum(weight)) %>%
     .$count %>%
     as.numeric()
   tot <- tbl %>%
-    group_by(per_id) %>% filter(row_number() == 1) %>%  # get 1 row per person
-    ungroup() %>%
-    summarise(count = sum(weight)) %>%
+    dplyr::group_by(per_id) %>% filter(row_number() == 1) %>%  # get 1 row per person
+    dplyr::ungroup() %>%
+    dplyr::summarise(count = sum(weight)) %>%
     .$count %>%
     as.numeric()
   pct_home <- num_home / tot * 100
